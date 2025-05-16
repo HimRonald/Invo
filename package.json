@@ -1,0 +1,48 @@
+{
+  "name": "next-fullstack-starter",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "auth:gen": "npx @better-auth/cli@latest generate"
+  },
+  "dependencies": {
+    "@prisma/adapter-better-sqlite3": "^6.8.1",
+    "@prisma/client": "^6.8.1",
+    "@radix-ui/react-avatar": "^1.1.9",
+    "@radix-ui/react-checkbox": "^1.3.1",
+    "@radix-ui/react-label": "^2.1.6",
+    "@radix-ui/react-slot": "^1.2.2",
+    "better-auth": "^1.2.8",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "hono": "^4.7.9",
+    "lucide-react": "^0.510.0",
+    "next": "15.3.2",
+    "next-themes": "^0.4.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sonner": "^2.0.3",
+    "tailwind-merge": "^3.3.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.2",
+    "prisma": "^6.8.1",
+    "tailwindcss": "^4",
+    "tsx": "^4.19.4",
+    "tw-animate-css": "^1.2.9",
+    "typescript": "^5"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  }
+}
