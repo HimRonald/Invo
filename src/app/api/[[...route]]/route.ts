@@ -1,14 +1,14 @@
 import { auth } from "@/lib/auth";
 import { handle } from "hono/vercel";
 import { cors } from "hono/cors";
-import { AuthGuard } from "@/server/middleware/auth-guard";
+import { applySession } from "@/server/middleware/auth";
 import { HonoFactory } from "@/server/factory";
 
 export const runtime = "nodejs";
 
 const app = HonoFactory.createApp().basePath("/api");
 
-app.use("*", AuthGuard);
+app.use("*", applySession);
 
 app.on(
   ["POST", "GET"],
