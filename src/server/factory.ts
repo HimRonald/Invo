@@ -1,5 +1,5 @@
 "server only";
-import { auth } from "@/lib/auth";
+import type { auth } from "@/lib/auth";
 
 import { createFactory } from "hono/factory";
 

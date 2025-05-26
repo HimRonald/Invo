@@ -1,0 +1,189 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "assists": {
+    "actions": {
+      "source": {
+        "sortJsxProps": "on",
+        "useSortedKeys": "off"
+      }
+    },
+    "enabled": true,
+    "ignore": [
+      ".encore",
+      ".idea",
+      ".next",
+      ".vercel",
+      "generated",
+      "build",
+      "dist",
+      "encore.gen",
+      "node_modules"
+    ]
+  },
+  "css": {
+    "formatter": {
+      "enabled": true
+    },
+    "linter": {
+      "enabled": true
+    }
+  },
+  "formatter": {
+    "attributePosition": "multiline",
+    "bracketSpacing": true,
+    "enabled": true,
+    "formatWithErrors": true,
+    "ignore": [
+      ".encore",
+      ".idea",
+      ".next",
+      ".vercel",
+      ".turbo",
+      "generated",
+      "build",
+      "dist",
+      "encore.gen",
+      "node_modules"
+    ],
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80
+  },
+  "javascript": {
+    "formatter": {
+      "enabled": true,
+      "quoteStyle": "double",
+      "semicolons": "always"
+    },
+    "jsxRuntime": "reactClassic",
+    "linter": {
+      "enabled": true
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "ignore": [
+      ".encore",
+      ".idea",
+      ".next",
+      ".vercel",
+      ".turbo",
+      "generated",
+      "build",
+      "dist",
+      "encore.gen",
+      "node_modules"
+    ],
+    "rules": {
+      "a11y": {
+        "all": true
+      },
+      "all": true,
+      "complexity": {
+        "all": true
+      },
+      "correctness": {
+        "all": true,
+        "noNodejsModules": "off",
+        "noUndeclaredDependencies": "off",
+        "useImportExtensions": "off"
+      },
+      "nursery": {
+        "all": true,
+        "noProcessEnv": "off",
+        "noSecrets": "off",
+        "useComponentExportOnlyModules": "off",
+        "useConsistentCurlyBraces": {
+          "fix": "safe",
+          "level": "error"
+        },
+        "useExplicitType": "off",
+        "useImportRestrictions": "off",
+        "useSortedClasses": {
+          "fix": "safe",
+          "level": "error",
+          "options": {
+            "attributes": ["className"],
+            "functions": ["cn", "cva"]
+          }
+        }
+      },
+      "performance": {
+        "all": true
+      },
+      "security": {
+        "all": true
+      },
+      "style": {
+        "all": true,
+        "noParameterProperties": "off",
+        "noDefaultExport": "off",
+        "useNamingConvention": "off"
+      },
+      "suspicious": {
+        "all": true,
+        "noConsole": "off",
+        "noExplicitAny": "off",
+        "noConsoleLog": "off",
+        "noReactSpecificProps": "off"
+      }
+    }
+  },
+  "organizeImports": {
+    "enabled": false,
+    "ignore": [
+      ".encore",
+      ".idea",
+      ".next",
+      ".vercel",
+      ".turbo",
+      "generated",
+      "build",
+      "dist",
+      "encore.gen",
+      "node_modules"
+    ]
+  },
+  "overrides": [
+    {
+      "ignore": [
+        ".encore",
+        ".idea",
+        ".next",
+        ".million",
+        ".vercel",
+        ".turbo",
+        "generated",
+        "build",
+        "dist",
+        "encore.gen",
+        "node_modules"
+      ]
+    },
+    {
+      "include": ["./apps/api/src/**/*.ts"],
+      "javascript": { "parser": { "unsafeParameterDecoratorsEnabled": true } },
+      "linter": {
+        "enabled": true,
+        "rules": { "style": { "noParameterProperties": "off" } }
+      }
+    },
+    {
+      "include": ["./pkgs/database/**/*.ts"],
+
+      "linter": {
+        "enabled": true,
+        "rules": {
+          "performance": {
+            "noReExportAll": "off",
+            "noBarrelFile": "off"
+          },
+          "style": {
+            "noNamespaceImport": "off"
+          }
+        }
+      }
+    }
+  ]
+}

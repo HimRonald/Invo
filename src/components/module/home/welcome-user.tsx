@@ -15,29 +15,32 @@ const WelcomeUser = () => {
   if (isPending) {
     return (
       <div>
-        <Loader2 className="animate-spin size-12" />
+        <Loader2 className="size-12 animate-spin" />
       </div>
     );
   }
 
   if (data?.user) {
     return (
-      <Card className="w-full max-w-sm mx-auto overflow-hidden">
+      <Card className="mx-auto w-full max-w-sm overflow-hidden">
         <CardContent className="p-6">
           <div className="flex flex-col items-center space-y-4">
-            <Avatar className="h-16 w-16">
-              <AvatarImage src={data.user.image || ""} alt={data.user.name} />
+            <Avatar className="size-16">
+              <AvatarImage
+                src={data.user.image || ""}
+                alt={data.user.name}
+              />
               <AvatarFallback>
                 {data.user.name.charAt(0).toUpperCase()}
               </AvatarFallback>
             </Avatar>
 
-            <div className="text-center space-y-2">
+            <div className="space-y-2 text-center">
               <p className="text-base">
-                Welcome, You are currently logged in as{" "}
+                Welcome, You are currently logged in as
                 <span className="font-medium">{data.user.name}</span>.
               </p>
-              <p className="text-sm text-gray-500">Email: {data.user.email}</p>
+              <p className="text-gray-500 text-sm">Email: {data.user.email}</p>
             </div>
           </div>
         </CardContent>
@@ -55,7 +58,7 @@ const WelcomeUser = () => {
                   onResponse: () => {
                     setLoading(false);
                   },
-                }
+                },
               )
             }
             disabled={loading}
@@ -68,13 +71,20 @@ const WelcomeUser = () => {
   }
 
   return (
-    <div className="py-10 flex gap-4">
-      <Button asChild size="lg">
+    <div className="flex gap-4 py-10">
+      <Button
+        asChild={true}
+        size="lg"
+      >
         <Link href="/auth/sign-up">
-          Sign Up <ArrowRight className="ml-2 h-4 w-4" />
+          Get Started <ArrowRight className="ml-2 h-4 w-4" />
         </Link>
       </Button>
-      <Button asChild variant="outline" size="lg">
+      <Button
+        asChild={true}
+        variant="outline"
+        size="lg"
+      >
         <Link href="/auth/sign-in">Sign In</Link>
       </Button>
     </div>

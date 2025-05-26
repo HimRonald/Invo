@@ -23,7 +23,7 @@ app.on(
     exposeHeaders: ["Content-Length"],
     maxAge: 600,
     credentials: true,
-  })
+  }),
 );
 
 app.get("/ping", (c) => {
@@ -31,7 +31,7 @@ app.get("/ping", (c) => {
     {
       message: "Pong!",
     },
-    200
+    200,
   );
 });
 
