@@ -26,6 +26,10 @@ model User {
   sessions      Session[]
   accounts      Account[]
 
+  role             Role      @default(CLIENT)
+  invoicesSent     Invoice[] @relation("SellerInvoices")
+  invoicesReceived Invoice[] @relation("ClientInvoices")
+
   @@unique([email])
   @@map("user")
 }
@@ -73,4 +77,39 @@ model Verification {
   updatedAt  DateTime?
 
   @@map("verification")
+}
+
+enum Role {
+  SELLER
+  CLIENT
+}
+
+enum InvoiceSatus {
+  DRAFT
+  SENT
+  PAID
+  OVERDUE
+}
+
+model Invoice {
+  id        String       @id @default(uuid())
+  sellerId  String
+  clientId  String
+  seller    User         @relation("SellerInvoices", fields: [sellerId], references: [id])
+  client    User         @relation("ClientInvoices", fields: [clientId], references: [id])
+  items     Item[]
+  status    InvoiceSatus @default(DRAFT)
+  total     Float
+  dueDate   DateTime
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+}
+
+model Item {
+  id          String  @id @default(cuid())
+  invoiceId   String
+  description String
+  quantity    Int
+  unitPrice   Float
+  invoice     Invoice @relation(fields: [invoiceId], references: [id])
 }

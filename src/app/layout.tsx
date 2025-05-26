@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
+import React from "react";
 
 import "./globals.css";
 
@@ -14,9 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Next.js Starter Kit",
-  description:
-    "Next.js fullstack starter kit with tailwindcss, shadcn/ui, prisma, better-auth and Hono integrated.",
+  title: "Invo.",
+  description: "Invoicing made easy. Create and send invoices in seconds.",
 };
 
 export default function RootLayout({
@@ -25,12 +26,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+    <>
+      <html
+        lang="en"
+        suppressHydrationWarning={true}
       >
-        {children}
-      </body>
-    </html>
+        <head />
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem={true}
+            disableTransitionOnChange={true}
+          >
+            {children}
+          </ThemeProvider>
+        </body>
+      </html>
+    </>
   );
 }

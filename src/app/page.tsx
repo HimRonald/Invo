@@ -1,21 +1,29 @@
 import { Database, Lock, Zap } from "lucide-react";
 import WelcomeUser from "@/components/module/home/welcome-user";
+import { ModeToggle } from "@/components/ui/mode-toggle";
+import { LogoPage } from "@/components/navbar/logo";
 
 export default function Home() {
   return (
     <div>
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="min-h-screen w-full py-12 md:py-24 lg:py-32">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                  Next.js Fullstack starter Kit
-                </h1>
-                <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+              <div className="flex flex-col items-center space-y-2">
+                <div className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl/none">
+                  <LogoPage />
+                </div>
+                {/* <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
                   A fullstack starter kit built with Next.js, Tailwind CSS,
                   Prisma for database, better-auth for
                   Authentication/Authorization and Hono for API router.
+                </p> */}
+                <p className="font-bold text-lg text-primary uppercase">
+                  Records Professionalism
+                </p>
+                <p className="text-xl">
+                  Project by ©Ronald Him - Template by ©Bong Maneth
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -25,7 +33,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50 dark:bg-gray-900">
+        {/* <section className="w-full bg-gray-50 py-12 md:py-24 lg:py-32 dark:bg-gray-900">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-3 lg:gap-12">
               <div className="flex flex-col items-center space-y-4 text-center">
@@ -33,7 +41,7 @@ export default function Home() {
                   <Database className="h-8 w-8 text-primary" />
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-xl font-bold">Prisma Integration</h3>
+                  <h3 className="font-bold text-xl">Prisma Integration</h3>
                   <p className="text-gray-500 dark:text-gray-400">
                     Type-safe database access with Prisma ORM for efficient data
                     management.
@@ -45,7 +53,7 @@ export default function Home() {
                   <Lock className="h-8 w-8 text-primary" />
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-xl font-bold">Better Auth</h3>
+                  <h3 className="font-bold text-xl">Better Auth</h3>
                   <p className="text-gray-500 dark:text-gray-400">
                     Secure authentication system with session management and
                     user roles.
@@ -57,7 +65,7 @@ export default function Home() {
                   <Zap className="h-8 w-8 text-primary" />
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-xl font-bold">Hono Integration</h3>
+                  <h3 className="font-bold text-xl">Hono Integration</h3>
                   <p className="text-gray-500 dark:text-gray-400">
                     Fast, lightweight web framework for building modern APIs and
                     applications.
@@ -66,11 +74,11 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
       <footer className="w-full border-t py-6">
         <div className="container mx-auto flex flex-col items-center justify-center gap-4 px-4 md:px-6">
-          <p className="text-center text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-center text-gray-500 text-sm dark:text-gray-400">
             © {new Date().getFullYear()} Next.js Starter Kit. All rights
             reserved.
           </p>

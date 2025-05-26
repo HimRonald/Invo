@@ -30,7 +30,7 @@ export default function SignIn() {
         email,
         password,
         rememberMe,
-        callbackURL: "/",
+        callbackURL: "/home",
       },
       {
         onRequest: () => {
@@ -44,7 +44,7 @@ export default function SignIn() {
           setLoading(false);
           toast.error("Something went wrong");
         },
-      }
+      },
     );
   };
 
@@ -53,7 +53,7 @@ export default function SignIn() {
       <div className="w-full max-w-md">
         <Link
           href="/"
-          className="mb-4 flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+          className="mb-4 flex items-center font-medium text-gray-500 text-sm hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to home
@@ -61,7 +61,7 @@ export default function SignIn() {
 
         <Card>
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl font-bold">Sign in</CardTitle>
+            <CardTitle className="font-bold text-2xl">Sign in</CardTitle>
             <CardDescription>
               Enter your credentials to access your account
             </CardDescription>
@@ -76,7 +76,7 @@ export default function SignIn() {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
+                required={true}
               />
             </div>
             <div className="space-y-2">
@@ -84,7 +84,7 @@ export default function SignIn() {
                 <Label htmlFor="password">Password</Label>
                 <Link
                   href="#"
-                  className="text-sm font-medium text-primary hover:underline"
+                  className="font-medium text-primary text-sm hover:underline"
                 >
                   Forgot password?
                 </Link>
@@ -95,7 +95,7 @@ export default function SignIn() {
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required
+                required={true}
               />
             </div>
             <div className="flex items-center space-x-2">
@@ -106,7 +106,7 @@ export default function SignIn() {
               />
               <label
                 htmlFor="remember"
-                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                className="font-medium text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
               >
                 Remember me
               </label>
@@ -122,7 +122,7 @@ export default function SignIn() {
               {loading ? "Signing in..." : "Sign In"}
             </Button>
             <div className="text-center text-sm">
-              Don&apos;t have an account?{" "}
+              Don&apos;t have an account?
               <Link
                 href="/sign-up"
                 className="font-medium text-primary hover:underline"

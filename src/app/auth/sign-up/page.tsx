@@ -59,8 +59,8 @@ export default function SignUp() {
         onError: (ctx) => {
           toast.error(ctx.error.message);
         },
-        onSuccess: async () => {
-          router.push("/");
+        onSuccess: () => {
+          router.push("/home");
         },
       },
     });
@@ -71,13 +71,13 @@ export default function SignUp() {
       <div className="w-full max-w-md">
         <Link
           href="/"
-          className="mb-4 flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
+          className="mb-4 flex items-center font-medium text-gray-500 text-sm hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to home
         </Link>
 
-        <Card className="z-50 rounded-md rounded-t-none max-w-md">
+        <Card className="z-50 max-w-md rounded-md">
           <CardHeader>
             <CardTitle className="text-lg md:text-xl">Sign Up</CardTitle>
             <CardDescription className="text-xs md:text-sm">
@@ -92,7 +92,7 @@ export default function SignUp() {
                   <Input
                     id="first-name"
                     placeholder="Max"
-                    required
+                    required={true}
                     onChange={(e) => {
                       setFirstName(e.target.value);
                     }}
@@ -104,7 +104,7 @@ export default function SignUp() {
                   <Input
                     id="last-name"
                     placeholder="Robinson"
-                    required
+                    required={true}
                     onChange={(e) => {
                       setLastName(e.target.value);
                     }}
@@ -118,7 +118,7 @@ export default function SignUp() {
                   id="email"
                   type="email"
                   placeholder="m@example.com"
-                  required
+                  required={true}
                   onChange={(e) => {
                     setEmail(e.target.value);
                   }}
@@ -151,7 +151,7 @@ export default function SignUp() {
                 <Label htmlFor="image">Profile Image (optional)</Label>
                 <div className="flex items-end gap-4">
                   {imagePreview && (
-                    <div className="relative w-16 h-16 rounded-sm overflow-hidden">
+                    <div className="relative h-16 w-16 overflow-hidden rounded-sm">
                       <Image
                         src={imagePreview}
                         alt="Profile preview"
@@ -160,7 +160,7 @@ export default function SignUp() {
                       />
                     </div>
                   )}
-                  <div className="flex items-center gap-2 w-full">
+                  <div className="flex w-full items-center gap-2">
                     <Input
                       id="image"
                       type="file"
@@ -187,7 +187,10 @@ export default function SignUp() {
                 onClick={handleSubmit}
               >
                 {loading ? (
-                  <Loader2 size={16} className="animate-spin" />
+                  <Loader2
+                    size={16}
+                    className="animate-spin"
+                  />
                 ) : (
                   "Create an account"
                 )}
@@ -195,8 +198,8 @@ export default function SignUp() {
             </div>
           </CardContent>
           <CardFooter>
-            <div className="flex justify-center w-full border-t py-4">
-              <p className="text-center text-xs text-neutral-500">
+            <div className="flex w-full justify-center border-t py-4">
+              <p className="text-center text-neutral-500 text-xs">
                 Secured by <span className="text-orange-400">better-auth.</span>
               </p>
             </div>

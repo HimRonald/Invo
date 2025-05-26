@@ -6,11 +6,14 @@ const globalForPrisma = global as unknown as {
 };
 
 const adapter = new PrismaBetterSQLite3({
+  // biome-ignore lint/style/noNonNullAssertion: <explanation>
   url: process.env.DATABASE_URL!,
 });
 
 const prisma = globalForPrisma.prisma || new PrismaClient({ adapter });
 
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+if (process.env.NODE_ENV !== "production") {
+  globalForPrisma.prisma = prisma;
+}
 
 export default prisma;
